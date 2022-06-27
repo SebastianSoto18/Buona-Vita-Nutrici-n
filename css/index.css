@@ -111,7 +111,7 @@ button{
     display: block;
     clear: both;
     margin: 10px 0px;
-
+	
 }
 
 button:active{
@@ -131,4 +131,8 @@ button[disabled=disabled], button:disabled {
 
 .campo-invalido{
 	border: 1px solid red;
+}
+
+.paciente-error{
+	background-color: lightcoral;
 }

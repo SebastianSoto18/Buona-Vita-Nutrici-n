@@ -12,5 +12,6 @@ for(var i=0;i<pacientes.length;i++){
         paciente.querySelector(".info-imc").textContent=(peso/(altura*altura)).toFixed(2);
     }else{
         paciente.querySelector(".info-imc").textContent="Verifique peso y altura del paciente";
+        paciente.classList.add("paciente-error");
     }
 }
