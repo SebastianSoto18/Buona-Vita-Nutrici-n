@@ -11,7 +11,7 @@
 	<body>
 
 		<header>
-			<div class="container">
+			<div class="">
 				<h1>Buona Vita Nutrición</h1>
 			</div>
 		</header>
@@ -62,7 +62,7 @@
 						</tr>
 						<tr class="paciente" >
 							<td class="info-nombre">Tatiana</td>
-							<td class="info-peso">-46</td>
+							<td class="info-peso">46</td>
 							<td class="info-altura">1.55</td>
 							<td class="info-gordura">19</td>
 							<td class="info-imc">0</td>
@@ -71,7 +71,31 @@
 				</table>
 
 			</section>
+
+			<section class="container">
+				<h2 id="titulo-form">Adicionar nuevo paciente</h2>
+				<form id="adicionar">
+					<div class="grupo">
+						<label for="nombre">Nombre:</label>
+						<input required id="nombre"  name="nombre" type="text" placeholder="digite el nombre del paciente" class="campo">
+					</div>
+					<div class="grupo">
+						<label for="peso">Peso:</label>
+						<input required id="peso" name="peso" type="number" placeholder="digite el peso del paciente" class="campo campo-medio">
+					</div>
+					<div class="grupo">
+						<label for="altura">Altura:</label>
+						<input required id="altura" name="altura" type="number" placeholder="digite la altura del paciente" class="campo campo-medio">
+					</div>
+					<div class="grupo">
+						<label for="gordura">% de Gordura:</label>
+						<input required id="gordura" type="number" placeholder="digite el porcentaje de gordura del paciente" class="campo campo-medio">
+					</div>
+					<button id="adicionar-paciente" class="boton bto-principal">Adicionar</button>
+				</form>
+			</section>
 		</main>
-		<script src="js/clinica.js"></script>
+		<script src="js/calcularIMC.js"></script>
+		<script src="js/form.js"></script>
 	</body>
 </html>

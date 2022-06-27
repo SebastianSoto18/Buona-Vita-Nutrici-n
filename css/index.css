@@ -12,12 +12,14 @@ header{
 	height: 3em;
 	color: #FFF;
 	margin-bottom: 1em;
+	text-align: center;
 }
 
 header h1{
 	font-size: 2em;
 	display:inline-block;
 	vertical-align:	middle;
+	
 }
 header h2{
 	font-size: 2em;
@@ -35,7 +37,7 @@ header .container:before{
 .container{
 	width: 60%;
 	height: 100%;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 
 section{
@@ -106,12 +108,17 @@ button{
 	margin-top: -3px;
 	color: #fff;
 	background-color:#0c8cd3;
-	border-color: #04324c;
+
 	width: 20%;
     display: block;
     clear: both;
     margin: 10px 0px;
-	
+	text-align: center;
+}
+
+
+button:hover{
+	border-color: #04324c;
 }
 
 button:active{
