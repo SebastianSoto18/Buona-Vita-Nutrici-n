@@ -5,8 +5,6 @@ botonadd.addEventListener("click", function(event){
 
     var form = document.querySelector("#adicionar");
     var paciente=capform(form);
-    var tabla = document.querySelector("#tabla-pacientes");
-    var pacienteTr=constructr(paciente);
     var error=validarpaciente(paciente);
 
     if(error.length > 0) {
@@ -14,13 +12,21 @@ botonadd.addEventListener("click", function(event){
         return;
     }
 
-    tabla.appendChild(pacienteTr);
+    addpaciente(paciente); 
     form.reset();
 
     var mensajeserrores= document.querySelector('#messageerror');
     mensajeserrores.innerHTML="";
 });
 
+
+function addpaciente(paciente){
+
+    var pacienteTr=constructr(paciente);
+    var tabla = document.querySelector("#tabla-pacientes");
+    tabla.appendChild(pacienteTr);
+
+}
 
 function capform(form){
 
