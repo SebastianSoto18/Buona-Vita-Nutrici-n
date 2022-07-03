@@ -4,25 +4,39 @@ botonadd.addEventListener("click", function(event){
     event.preventDefault();
 
     var form = document.querySelector("#adicionar");
+    var paciente=capform(form);
     var tabla = document.querySelector("#tabla-pacientes");
-    var nombre=form.nombre.value;
-    var peso=form.peso.value;
-    var altura=form.altura.value;
-    var gordura=form.gordura.value;
+    var pacienteTr=constructr(paciente);
+    
+    tabla.appendChild(pacienteTr);
+
+    form.reset();
+});
 
 
-    pacientetr=document.createElement("tr");
-    nombretd=document.createElement("td");
-    pesotd=document.createElement("td");
-    alturatd=document.createElement("td");
-    gorduratd=document.createElement("td");
-    imctd=document.createElement("td");
+function capform(form){
 
-    nombretd.textContent=nombre;
-    alturatd.textContent=altura;
-    pesotd.textContent=peso;
-    gorduratd.textContent=gordura;
-    imctd.textContent=calcularIMC(peso,altura);
+    var paciente ={
+         nombre:form.nombre.value,
+         peso:form.peso.value,
+         altura:form.altura.value,
+         gordura:form.gordura.value,
+         imc:calcularIMC(form.peso.value,form.altura.value)
+    }
+
+   return paciente;
+}
+
+function constructr(paciente){
+
+    var pacientetr=document.createElement("tr");
+    pacientetr.classList.add("paciente");
+
+    var nombretd=constructd(paciente.nombre,"info-nombre")
+    var pesotd=constructd(paciente.peso,"info-peso");
+    var alturatd=constructd(paciente.altura,"info-altura");
+    var gorduratd=constructd(paciente.gordura,"info-gordura");
+    var imctd=constructd(paciente.imc,"info-imc");
 
     pacientetr.appendChild(nombretd);
     pacientetr.appendChild(pesotd);
@@ -30,6 +44,13 @@ botonadd.addEventListener("click", function(event){
     pacientetr.appendChild(gorduratd);
     pacientetr.appendChild(imctd);
     
+    return pacientetr;
+}
 
-    tabla.appendChild(pacientetr);
-});
+
+function constructd(dato,clase){
+    var td= document.createElement("td");
+    td.classList.add(clase);
+    td.textContent = dato;
+    return td;
+}

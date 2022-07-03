@@ -3,6 +3,7 @@ function calcularIMC(peso,altura){
 }
 
 //TODO ADICIONAR FUNCIONALIDADES PARA ELIMINAR Y ACTUALIZAR CON BOOTSTRAP Y SEEWTALERT
+
    
  var pacientes = document.querySelectorAll(".paciente");
 
