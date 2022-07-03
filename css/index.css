@@ -143,3 +143,12 @@ button[disabled=disabled], button:disabled {
 .paciente-error{
 	background-color: lightcoral;
 }
+
+#messageerror{
+	color:red;
+}
+
+.out{
+	opacity: 0;
+	transition: 1s;
+}

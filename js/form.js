@@ -7,10 +7,18 @@ botonadd.addEventListener("click", function(event){
     var paciente=capform(form);
     var tabla = document.querySelector("#tabla-pacientes");
     var pacienteTr=constructr(paciente);
-    
-    tabla.appendChild(pacienteTr);
+    var error=validarpaciente(paciente);
 
+    if(error.length > 0) {
+        mostrarmensaje(error);
+        return;
+    }
+
+    tabla.appendChild(pacienteTr);
     form.reset();
+
+    var mensajeserrores= document.querySelector('#messageerror');
+    mensajeserrores.innerHTML="";
 });
 
 
@@ -32,17 +40,11 @@ function constructr(paciente){
     var pacientetr=document.createElement("tr");
     pacientetr.classList.add("paciente");
 
-    var nombretd=constructd(paciente.nombre,"info-nombre")
-    var pesotd=constructd(paciente.peso,"info-peso");
-    var alturatd=constructd(paciente.altura,"info-altura");
-    var gorduratd=constructd(paciente.gordura,"info-gordura");
-    var imctd=constructd(paciente.imc,"info-imc");
-
-    pacientetr.appendChild(nombretd);
-    pacientetr.appendChild(pesotd);
-    pacientetr.appendChild(alturatd);
-    pacientetr.appendChild(gorduratd);
-    pacientetr.appendChild(imctd);
+    pacientetr.appendChild(constructd(paciente.nombre,"info-nombre"));
+    pacientetr.appendChild(constructd(paciente.peso,"info-peso"));
+    pacientetr.appendChild(constructd(paciente.altura,"info-altura"));
+    pacientetr.appendChild(constructd(paciente.gordura,"info-gordura"));
+    pacientetr.appendChild(constructd(paciente.imc,"info-imc"));
     
     return pacientetr;
 }
@@ -52,4 +54,38 @@ function constructd(dato,clase){
     td.classList.add(clase);
     td.textContent = dato;
     return td;
+}
+
+function validarpaciente(paciente){
+    var mensaje=[];
+
+    if(!validarpeso(paciente.peso)){
+        mensaje.push("ERROR, verificar el campo del peso");
+    }
+
+    if(!validaraltura(paciente.altura)){
+        mensaje.push("ERROR, verificar el campo de la altura");
+    }
+
+    if(!(paciente.nombre.length > 0)){
+        mensaje.push("ERROR, verificar el campo del nombre");
+    }
+
+    if(!(paciente.gordura.length > 0)){
+        mensaje.push("ERROR, verificar el campo de la gordura");
+    }
+
+    return mensaje;
+}
+
+function mostrarmensaje(error){
+    var ul = document.querySelector('#messageerror');
+    ul.innerHTML="";
+
+   error.forEach(function(errors){
+        var li = document.createElement("li");
+        li.textContent = errors;
+        ul.appendChild(li);
+   });
+
 }
