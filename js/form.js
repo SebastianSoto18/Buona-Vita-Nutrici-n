@@ -47,7 +47,6 @@ function constructr(paciente){
     return pacientetr;
 }
 
-
 function constructd(dato,clase){
     var td= document.createElement("td");
     td.classList.add(clase);
