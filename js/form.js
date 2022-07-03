@@ -32,17 +32,11 @@ function constructr(paciente){
     var pacientetr=document.createElement("tr");
     pacientetr.classList.add("paciente");
 
-    var nombretd=constructd(paciente.nombre,"info-nombre")
-    var pesotd=constructd(paciente.peso,"info-peso");
-    var alturatd=constructd(paciente.altura,"info-altura");
-    var gorduratd=constructd(paciente.gordura,"info-gordura");
-    var imctd=constructd(paciente.imc,"info-imc");
-
-    pacientetr.appendChild(nombretd);
-    pacientetr.appendChild(pesotd);
-    pacientetr.appendChild(alturatd);
-    pacientetr.appendChild(gorduratd);
-    pacientetr.appendChild(imctd);
+    pacientetr.appendChild(constructd(paciente.nombre,"info-nombre"));
+    pacientetr.appendChild(constructd(paciente.peso,"info-peso"));
+    pacientetr.appendChild(constructd(paciente.altura,"info-altura"));
+    pacientetr.appendChild(constructd(paciente.gordura,"info-gordura"));
+    pacientetr.appendChild(constructd(paciente.imc,"info-imc"));
     
     return pacientetr;
 }
