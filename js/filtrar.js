@@ -13,17 +13,23 @@ campofiltro.addEventListener('input', function(e) {
             
             var expression = new RegExp(this.value,"i");
 
-            if (!expression.test(nombre)) {
+            if (!expression.test(nombre)){
+
                     paciente.classList.add('invisible');
+
             }else{
+
                 paciente.classList.remove('invisible');
+
             }
         }
 
     }else{
 
         for (var i = 0; i < pacientes.length; i++) {
+
             pacientes[i].classList.remove('invisible');
+            
         }
     }
  
